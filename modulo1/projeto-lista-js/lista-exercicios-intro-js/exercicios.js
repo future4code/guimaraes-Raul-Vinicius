@@ -1,5 +1,5 @@
 // EXEMPLOS DE IMPLEMENTAÇÃO ---------------------------------------------------------------
-
+/*lista*/
 // EXERCÍCIO 0A
 function soma(num1, num2) {
   // implemente sua lógica aqui
