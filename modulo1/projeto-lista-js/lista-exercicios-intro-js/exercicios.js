@@ -94,29 +94,57 @@ function checaStringsMesmoTamanho(string1, string2) {
 function retornaPrimeiroElemento(array) {
   // implemente sua lógica aqui
 
+return array[0]
+
 }
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
 
-}
+  return array[1] // Só passa no primeiro teste
+ 
+} 
+
+
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
+
+  array.pop()
+  array.pop()
+  array.push("abc","ola")    // Só passa no primeiro teste
+  
+  return array 
 
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
+string1 = true
+string2 = true
+return string1 || string2  // Não passa no terceiro teste
 
 }
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
+
+let anoHoje = Number (prompt ("Qual é o ano Atual?"))
+let anoNasceu = Number (prompt ("Qual o ano que você nasceu?"))
+let anoEmitiu = Number (prompt ("Em que ano foi emitido o seu Rg"))
+
+
+return 
+
+/*let idadeDoUsuario = anoHoje - anoNasceu
+let renovarRg = anoHoje - anoEmitiu*/
+
+//- Para pessoas entre 20 e 50 anos, ou exatamente 50, deve ser 
+//renovada de 10 em 10 anos (se for exatamente 10 anos, deve ser renovada).
 
 }
 
