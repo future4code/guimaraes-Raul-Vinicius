@@ -103,10 +103,20 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
   
+    array.sort(function (a, b) {
+        return a - b
+    })
+
+    let segundoMenor = array[1]
+    let segundoMaior = array[array.length-2]
+    array = [segundoMaior, segundoMenor]
+
+    return array
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
+    
    
 }
 
