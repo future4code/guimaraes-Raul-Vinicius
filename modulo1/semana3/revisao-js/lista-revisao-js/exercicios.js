@@ -52,12 +52,34 @@ function retornaMaiorNumero(array) {
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
 
-    
+    let maiorNumero = undefined
+    let menorNumero = undefined
+    let maiorDivisivelPorMenor = undefined
+    let diferenca = undefined
 
+    if (num1 > num2) {
+        maiorNumero = num1
+        menorNumero = num2
+    } else {
+        maiorNumero = num2
+        menorNumero = num1
+    }
+
+    if (maiorNumero % menorNumero === 0){
+        maiorDivisivelPorMenor = true
+    } else {
+        maiorDivisivelPorMenor = false
+    }
+
+    diferenca = maiorNumero - menorNumero
+
+    return {"maiorNumero":maiorNumero,"maiorDivisivelPorMenor":maiorDivisivelPorMenor,"diferenca":diferenca}
 }
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
+
+    
    
 }
 
