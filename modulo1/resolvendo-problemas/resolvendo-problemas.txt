@@ -1,0 +1,17 @@
+PASSO A PASSO DE COMO RESOLVER PROBLEMAS
+
+1- Ler o enunciado com atenção, desvendando o que o código deve fazer e retirando informações importantes.
+
+2- Retirar informações relevantes como palavras-chaves para uso de variáveis, verbos para uso em funções e 
+se há alguma condição para o código ser executado.
+
+3- Pensar nas entradas e saídas. Pensar e visualizar como serão as entradas e saídas pode facilitar a implantação do 
+código.
+
+4- Fazer um esquema visual, diagramas ou tópicos que ajudam a visualização citada no passo 3.
+
+5- Criar um código "feio", onde é exposto toda sua ideia de código e soluções para os problemas.
+
+6- Testar na força bruta o código criado até que seja totalmente funcional.
+
+7- Refatorar, onde a gente revisa o código e renomeia as variáveis e funções. Deixar o código mais bonito e legível.
