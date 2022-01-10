@@ -33,6 +33,20 @@ main {
     background-size: contain;
 }
 
+.contatos { 
+    display: flex;
+    flex-direction: column;
+}
+
+.contatos a {
+    position: absolute;
+    top: 500px;
+    left: 100px;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+
+}
 
 h1 {
     position: absolute;
@@ -72,4 +86,14 @@ h2 {
 
 ms:hover{
     background-color: rgb(107, 201, 238);
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    color: white;
+    margin-left: 0px;
 }
