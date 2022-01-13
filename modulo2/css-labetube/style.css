@@ -1,3 +1,5 @@
+/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +29,39 @@ header > p {
 .Buscar > button {
     padding: 10px;
     border-style:groove;
+}
+
+/* Estilizando o main */
+
+main {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    padding: 30px;
+}
+
+.grid-dos-videos {
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-template-rows: repeat(4,1fr); 
+    gap: 10px;
+}
+
+.card-video {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+    box-shadow:  3px 3px rgb(187, 187, 187);
+}
+
+.card-video > p {
+    font-size: 20px;
+    padding: 10px;
+}
+.card-video > video {
+    width: 100%;
 }
 
 /* Estilizando o Footer */
