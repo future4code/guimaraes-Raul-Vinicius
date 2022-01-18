@@ -12,23 +12,31 @@ header{
     display: flex;
     background-color: red;
     justify-content: space-between;
-    padding: 15px 15px;
+    padding: 2vw;
 }
 
 header > p {
     color: white;
-    font-size: 30px;
+    font-size: 2.5vw;
+}
+
+.Buscar {
+    display: flex;
+    gap: .5vw;
 }
 
 .Buscar > input {
-    padding: 10px;
-    font-size: 15px;
+    padding: 2%;
+    font-size: 1vw;
     border: none;
-    width: 250px;
+    width: 18vw;
 }
+
 .Buscar > button {
-    padding: 10px;
+    padding: 2%;
+    width: 5vw;
     border-style:groove;
+    font-size: 1vw;
 }
 
 /* Estilizando o main */
@@ -37,14 +45,14 @@ main {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    padding: 30px;
+    padding: 2vw;
 }
 
 .grid-dos-videos {
     display: grid;
     grid-template-columns:repeat(4, 1fr);
     grid-template-rows: repeat(4,1fr); 
-    gap: 10px;
+    gap: 1vw;
 }
 
 .card-video > a {
@@ -53,12 +61,12 @@ main {
     border: 1px solid black;
     text-align: center;
     width: 100%;
-    box-shadow: 3px 3px rgb(187, 187, 187);
+    box-shadow: 0.2vw 0.2vw rgb(187, 187, 187);
 }
 
 .card-video > a > p {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 1.5vw;
+    padding: 1vw;
     text-decoration:none;
     color: black;
 }
@@ -72,9 +80,11 @@ main {
 footer {
     background-color: red;
     color: white;
-    padding: 15px 15px;
+    padding: 1vw 1vw;
+    font-size: 1vw;
     text-align: center;
 }
+
 
 /* ESTILIZANDO A PÁGINA DE DETALHE */
 
@@ -84,11 +94,56 @@ footer {
 }
 
 .detalhe-video > p {
-    font-size: 25px;
-    padding-bottom: 15px;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .detalhe-video > video {
     width: 100%;
-    margin-bottom: 300px;
+    margin-bottom: 10rem;
+}
+
+    /* celulares iphone 6, 7 e 8*/
+@media screen and (min-device-width : 375px) and (max-device-width : 667px) {
+
+    header {
+        height: 8vw;
+        align-items: center;
+    }
+
+    header > p {
+        font-size: 3vw;
+    }
+
+    .Buscar {
+        height: 5vw;
+    }
+
+    .Buscar > input {
+        font-size: 2vw;
+        width: 36vw;
+    }
+
+    .Buscar > button {
+        font-size: 2vw;
+        width: 10vw;
+    }
+
+    .grid-dos-videos {
+        grid-template-columns: 1fr;
+    }
+
+    .card-video > a > p {
+        font-size: 2vw;
+    }
+
+    footer {
+        height: 8vw;
+    }
+
+    footer > p {
+        font-size: 2vw;
+        padding-top: 3vw;
+    }
+
 }
