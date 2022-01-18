@@ -47,20 +47,23 @@ main {
     gap: 10px;
 }
 
-.card-video {
+.card-video > a {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     text-align: center;
     width: 100%;
-    box-shadow:  3px 3px rgb(187, 187, 187);
+    box-shadow: 3px 3px rgb(187, 187, 187);
 }
 
-.card-video > p {
+.card-video > a > p {
     font-size: 20px;
     padding: 10px;
+    text-decoration:none;
+    color: black;
 }
-.card-video > video {
+
+.card-video > a > video {
     width: 100%;
 }
 
@@ -71,4 +74,21 @@ footer {
     color: white;
     padding: 15px 15px;
     text-align: center;
+}
+
+/* ESTILIZANDO A PÁGINA DE DETALHE */
+
+.detalhe-video {
+    display: flex;
+    flex-direction: column;
+}
+
+.detalhe-video > p {
+    font-size: 25px;
+    padding-bottom: 15px;
+}
+
+.detalhe-video > video {
+    width: 100%;
+    margin-bottom: 300px;
 }
