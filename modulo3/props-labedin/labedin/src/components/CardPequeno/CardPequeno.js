@@ -1,15 +1,27 @@
 import React from 'react';
-import './CardPequeno.css'
+import styled from 'styled-components';
+
+const LittleCard = styled.div `
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 100px;
+`
+
+const ImageLittleCard = styled.img `
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+`
 
 function CardPequeno(props) {
     return (
-        <div className="littlecard-container">
-            <img src={ props.imagem } />
-            <div>
-                <h4>{ props.nome }</h4>
-                <p>{ props.descricao }</p>
-            </div>
-        </div>
+        <LittleCard className="littlecard-container">
+            <ImageLittleCard src={ props.imagem } />   
+            <p>{ props.descricao }</p>
+        </LittleCard>
     )
 }
 
