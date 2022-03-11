@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TelaCadastro from "./components/TelaCadastro";
+import TelaLista from "./components/TelaLista";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+
+  state = {
+    tela: "cadastro"
+  }
+  
+  escolheTela = () => {
+    switch(this.state.tela) {
+      case "cadastro":
+        return <TelaCadastro irParaLista={this.irParaLista} />
+      case "lista":
+        return <TelaLista irParaCadastro={this.irParaCadastro} />
+      default:
+        return <p>Algo deu errado!</p>
+    }
+  }
+
+  irParaCadastro = () => {
+    this.setState ({tela: "cadastro"})
+  }
+
+  irParaLista = () => {
+    this.setState ({tela: "lista"})
+  }
+
+  render() {
+    return (
+      <div>
+        {this.escolheTela()}
+      </div>
+    )
+  } 
 }
-
-export default App;
