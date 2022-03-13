@@ -9,7 +9,6 @@ const Header = styled.header`
   background-color: #000000;
   display: flex;
   justify-content: space-between;
-  padding: 0px;
 `
 const Logo = styled.img `
   height: 80px;
@@ -19,16 +18,14 @@ const Logo = styled.img `
 const ButtonHeader = styled.button `
   background-color: #28A830;
   color: #ffffff;
-  margin: 30px;
-  padding: 5px 40px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 20px 30px;
+  padding: 5px 20px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 10px;
   border-color: green;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
-
-
 export default class App extends React.Component {
 
   state = {
@@ -52,15 +49,14 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Header>
-          <Logo src= {logo} />
-          <ButtonHeader>Login</ButtonHeader>
-        </Header>
+            <Logo src= {logo} />
+            <ButtonHeader>LOGIN</ButtonHeader>
+          </Header>
 
-        <div>
-          {this.escolheTela()}
+          <div>
+            {this.escolheTela()}
+          </div>
         </div>
-
-      </div>
       
     )
   }
