@@ -12,7 +12,7 @@ const Header = styled.header`
 `
 const Logo = styled.img `
   height: 80px;
-  margin: 10px 0 10px 20px
+  margin: 10px 0 10px 20px;
 `
 
 const ButtonHeader = styled.button `
