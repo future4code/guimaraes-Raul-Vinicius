@@ -80,10 +80,6 @@ export default class CriarPlaylists extends React.Component {
         this.setState ({playlist: event.target.value})
     }
 
-    verPlaylists = () => {
-        
-    }
-
     render () {
         return (
             <Conteiner>
@@ -101,7 +97,7 @@ export default class CriarPlaylists extends React.Component {
 
                     <DivBotoes>
                         <Botoes onClick={this.criarPlaylist}>Criar Playlist</Botoes>
-                        <Botoes>Vizualizar Playlists</Botoes>
+                        <Botoes onClick={this.props.irListaPlaylists}>Vizualizar Playlists</Botoes>
                     </DivBotoes>  
                 </ConteinerCriar>
             </Conteiner>     

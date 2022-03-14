@@ -5,6 +5,9 @@ import ListaPlaylists from "./components/ListaPlaylists"
 import styled from "styled-components"
 import logo from "./img/logo.png"
 
+const ConteinerPai = styled.div `
+`
+
 const Header = styled.header`
   background-color: #000000;
   display: flex;
@@ -35,19 +38,35 @@ export default class App extends React.Component {
   escolheTela = () => {
     switch(this.state.tela) {
       case "criarPlaylist":
-        return <CriarPlaylists/>
+        return <CriarPlaylists irListaPlaylists={this.irListaPlaylists} />
       case "listaPlaylists":
-        return <ListaPlaylists />
+        return <ListaPlaylists irCriarPlaylist={this.irCriarPlaylist} />
       case "detalhePlaylist":
-        return <DetalhePlaylist/>
+        return <DetalhePlaylist irListaPlaylists={this.irListaPlaylists} />
       default:
         return <p>Nenhuma página foi encontrada.</p>
     }
   }
 
+  irCriarPlaylist = () => {
+    this.setState({tela: "criarPlaylist"})
+  }
+
+  irListaPlaylists = () => {
+    this.setState({tela: "listaPlaylists"})
+  }
+
+  irDetalhePlaylist = (trackId) => {
+    this.setState({detalhes: true, selecionar: trackId})
+  }
+
+  // irDetalhePlaylist = () => {
+  //   this.setState({tela: "detalhePlaylist"})
+  // }
+
   render() {
     return (
-      <div className="App">
+      <ConteinerPai>
         <Header>
             <Logo src= {logo} />
             <ButtonHeader>LOGIN</ButtonHeader>
@@ -56,7 +75,7 @@ export default class App extends React.Component {
           <div>
             {this.escolheTela()}
           </div>
-        </div>
+        </ConteinerPai>
       
     )
   }
