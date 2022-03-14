@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import styled from "styled-components"
+import DetalhePlaylist from "./DetalhePlaylist";
 
 const Conteiner = styled.div `
     display: flex;
@@ -95,24 +96,38 @@ export default class ListaPlaylists extends React.Component {
         })
     }
 
-    // irDetalhePlaylist = (trackId) => {
-    //     this.setState({detalhes: true, selecionar: trackId})
-    //   }
+    irDetalhePlaylist = (trackId) => {
+        this.setState({detalhes: true, selecionar: trackId})
+      }
+
+      detalhesVoltar = () => {
+          this.setState({detalhes: false})
+      }
 
     render () {
+
+        if (this.state.detalhes) {
+            return(
+                <DetalhePlaylist
+                    detalhesVoltar = {this.detalhesVoltar}
+                    selecionar = {this.state.selecionar}
+                />
+            )
+        }
         
         const boxPlaylists = this.state.playlists.map((play)=>{
             return (
                 <ConteinerPlaylist key={play.id}>
                     <NomePlaylist>{play.name}</NomePlaylist>
                     <div>
-                        <BotaoStyled onClick={() => this.props.irDetalhePlaylist(play.id)}>Detalhe</BotaoStyled>
+                        <BotaoStyled onClick={() => this.irDetalhePlaylist(play)}>Detalhe</BotaoStyled>
                         <BotaoStyled onClick={() => this.deletaPlaylist(play.id)}>Excluir</BotaoStyled>
                     </div>
                     
                 </ConteinerPlaylist>
             )
         })
+
 
         return (
             <Conteiner>

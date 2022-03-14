@@ -6,6 +6,8 @@ import styled from "styled-components"
 import logo from "./img/logo.png"
 
 const ConteinerPai = styled.div `
+  display: flex;
+  flex-direction: column;
 `
 
 const Header = styled.header`
@@ -29,6 +31,18 @@ const ButtonHeader = styled.button `
   border-color: green;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
+const Footer = styled.footer `
+  background-color: #000000;
+`
+
+const TextoFooter = styled.p `
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #ffffff ;
+  text-align: center;
+`
+
+
 export default class App extends React.Component {
 
   state = {
@@ -56,14 +70,6 @@ export default class App extends React.Component {
     this.setState({tela: "listaPlaylists"})
   }
 
-  irDetalhePlaylist = (trackId) => {
-    this.setState({detalhes: true, selecionar: trackId})
-  }
-
-  // irDetalhePlaylist = () => {
-  //   this.setState({tela: "detalhePlaylist"})
-  // }
-
   render() {
     return (
       <ConteinerPai>
@@ -75,8 +81,11 @@ export default class App extends React.Component {
           <div>
             {this.escolheTela()}
           </div>
+
+          <Footer>
+            <TextoFooter>Todos os direitos reservados - &copy; Labefy</TextoFooter>
+          </Footer>
         </ConteinerPai>
-      
     )
   }
 }
