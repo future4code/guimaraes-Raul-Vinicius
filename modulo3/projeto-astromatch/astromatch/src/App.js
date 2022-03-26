@@ -1,9 +1,13 @@
 import React from "react";
+import ListaMatches from "./pages/ListaMatches";
+import TelaInicial from "./pages/TelaInicial";
 
-function App() {
+const App = () => {
   return (
     <div>
       Vamos começar!
+      <ListaMatches />
+      <TelaInicial />
     </div>
   );
 }
