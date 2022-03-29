@@ -1,6 +1,16 @@
 import React, {useState} from "react";
 import ListaMatches from "./pages/ListaMatches";
 import TelaInicial from "./pages/TelaInicial";
+import styled from "styled-components"
+
+const AppContainer = styled.div `
+  display: flex;
+  padding-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(#FFC63D, #0030A1);
+  min-height: 800px;
+`
 
 const App = () => {
 
@@ -27,9 +37,9 @@ const App = () => {
   }
 
   return (
-    <div>
+    <AppContainer>
       {trocaTela()}
-    </div>
+    </AppContainer>
   );
 }
 

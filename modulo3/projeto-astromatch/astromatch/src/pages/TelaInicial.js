@@ -1,22 +1,89 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import lista from "../img/lista.png"
+import logo from "../img/logo.png"
 import styled from "styled-components";
 
+
 const Card = styled.div ` 
+background-color: white;
     border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    max-height: 800px;
+    border-radius: 20px;
+    padding: 30px;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 550px;
+    max-height: 550px;
 `
+
+const Header = styled.header `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+`
+const ImagemLogo = styled.img `
+    height: 40px;
+`
+
+const ImagemLista = styled.img `
+    height: 30px;
+`
+
 
 const FotoPerfil = styled.img `
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+    border-radius: 20px;
 `
 
-const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/raul`
+const InfoCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+`
+export const TextoNome = styled.p`
+    font-size: 25px;
+    padding: 0px;
+    margin: 10px 0px;
+    font-weight: bold;
+`
+
+const TextoBio = styled.p`
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+`
+
+const ContainerBotoes = styled.div `
+    display: flex;
+    justify-content: space-between;
+`
+
+const InteracaoBotao = styled.button `
+    background-color: #0030A1;
+    color: #FFC63D;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 35px;
+    min-width: 80px;
+`
+
+export const LimparMatchesBotao = styled.button `
+    background-color: #FFC63D ;
+    color: #0030A1;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+`
+
+export const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/raul`
 
 const TelaInicial = (props) => {
 
@@ -38,12 +105,11 @@ const TelaInicial = (props) => {
     useEffect(() => pegaPerfil(), [])
 
     const curtirPerfil = () => {
-        const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${url}/choose-person`
         const body = {
             id: perfil.id,
             choice: true
         }
-        axios.post(url,body)
+        axios.post(`${url}/choose-person`,body)
         .then((response)=>{
             pegaPerfil()
         })
@@ -53,12 +119,11 @@ const TelaInicial = (props) => {
     }
 
     const descartarPerfil = () => {
-        const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${url}/choose-person`
         const body = {
             id: perfil.id,
             choice: false
         }
-        axios.post(url,body)
+        axios.post(`${url}/choose-person`,body)
         .then((response)=>{
             pegaPerfil()
         })
@@ -67,25 +132,29 @@ const TelaInicial = (props) => {
         })
     }    
 
+     const limparMatches = () => {
+        axios.put(`${url}/clear`)
+    }
+
   return (
     <Card>
-      <header>
-          <p>AstroMATCH</p>
-          <img src={lista}></img>
-      </header>
+      <Header>
+        <ImagemLogo src={logo} />
+        <ImagemLista src={lista} onClick={props.irParaListaMatches} />
+      </Header>
 
-      <div>
+      <InfoCard>
           <FotoPerfil src={perfil.photo}></FotoPerfil>
-          <p>{perfil.name}, {perfil.age}</p>
-          <p>{perfil.bio}</p>
-      </div>
+          <TextoNome>{perfil.name}, {perfil.age}</TextoNome>
+          <TextoBio>{perfil.bio}</TextoBio>
+      </InfoCard>
 
-      <div>
-          <button onClick={descartarPerfil}>Descartar</button>
-          <button onClick={curtirPerfil}>Curtir</button>
-      </div>
+      <ContainerBotoes>
+          <InteracaoBotao onClick={descartarPerfil}>Descartar</InteracaoBotao>
+          <InteracaoBotao onClick={curtirPerfil}>Curtir</InteracaoBotao>
+      </ContainerBotoes>  
 
-      <button>Limpar matches</button>
+      <LimparMatchesBotao onClick={limparMatches}>Limpar matches</LimparMatchesBotao>
     </Card>
   );
 }
