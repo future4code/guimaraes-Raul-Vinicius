@@ -9,3 +9,5 @@ function checaTriangulo(a:number, b:number, c:number) {
   }
 
   console.log("O triangulo é", checaTriangulo(3,4,4))
+  console.log("O triangulo é", checaTriangulo(3,4,5))
+  console.log("O triangulo é", checaTriangulo(4,4,4))
