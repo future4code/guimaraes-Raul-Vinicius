@@ -1,0 +1,14 @@
+{
+  "name": "template-node-npm",
+  "version": "1.0.0",
+  "description": "Aula de Node e NPM",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "clear && node index.js",
+    "search":"clear &&"
+  },
+  "keywords": ["Aula", "Node"],
+  "author": "Raul",
+  "license": "ISC"
+}
