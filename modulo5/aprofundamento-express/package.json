@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
-    "start": "node ./src/index.ts ./build/index.js",
-    "build": "tsc",
+    "start": "tsc && node ./build/index.js",
     "ndmon": "nodemon src/index.ts"
   },
   "keywords": [],
