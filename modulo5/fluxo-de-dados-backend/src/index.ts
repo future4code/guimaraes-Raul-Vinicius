@@ -11,12 +11,12 @@ app.get("/test", (req: Request, res: Response)=> {
     res.status(200).send("Testando funcionamento da API")
 })
 
-//Create products 
+//Create products ----------------------------------------------
 
 app.post("/products/create", (req:Request, res:Response) => {
     try {
-        // const id = Math.random().toString()
-        const id = generateId().toString()
+        const id = products.length +1 //PARA FAZER COM NUMBER
+        // const id = generateId().toString() //PARA FAZER COMO STRING
         const name = req.body.name
         const price = req.body.price
 
@@ -35,6 +35,37 @@ app.post("/products/create", (req:Request, res:Response) => {
     }
 })
 
+// Get all products -----------------------------------------------
+
+app.get("/products", (req:Request, res:Response) => {
+    try {
+        res.status(201).send(products)
+    }
+
+    catch {
+        res.status(400).end("produtos não encontrados")
+    }
+})
+
+// Edit Price of products -----------------------------------------------
+
+app.put("/products/:id", (req:Request, res:Response) => {
+    const id = Number(req.params.id)
+    const price = Number(req.body.price)
+
+    try {
+        products.forEach(element => {
+            if (id === element.id) {
+                element.price = price
+            }
+        });
+        res.status(201).send(products)
+    }
+
+    catch {
+        res.status(400).end("produtos não encontrados")
+    }
+})
 
 
 
