@@ -12,5 +12,5 @@ ALTER TABLE Actor MODIFY gender VARCHAR(6);
 
 #EXERCICIO 2
 
-# a) 
+# a) 423
 
