@@ -22,7 +22,7 @@ export type Account = {
 export const users : Account[] = [
     {
         name : "Raul",
-        cpf : "123.123.123-12",
+        cpf : "111.111.111-11",
         dateOfBirthday : "09/09/1993",
         balance : 1000,
         extract : [
@@ -41,7 +41,7 @@ export const users : Account[] = [
 
     {
         name : "Sara",
-        cpf : "324.456.789-12",
+        cpf : "222.222.222-22",
         dateOfBirthday : "01/07/1998",
         balance : 500,
         extract : [

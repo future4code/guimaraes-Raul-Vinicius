@@ -1,4 +1,4 @@
-USE `guimaraes-4211089-raul-rita`;
+<!-- USE `guimaraes-4211089-raul-rita`;
 
 #EXERCICIO 1
 # a) Excluiria a coluna 'salary'
@@ -102,4 +102,4 @@ WHERE id = "002";
 
 #d) *Delete algum dos filmes, mas guarde o id. Tente fazer uma query para atualizar a sinopse desse
 # filme que você acabou de deletar (usando o mesmo id). Anote o resultado e explique.
-DELETE FROM Movies WHERE id = "001";
+DELETE FROM Movies WHERE id = "001"; -->
