@@ -1,8 +1,7 @@
 import express from "express"
 import { AddressInfo } from "net"
 import { Request, Response } from "express"
-import { Account, users } from "./data/account"
-import { findAncestor } from "typescript"
+import { Account, users, Transactions } from "./data/account"
 // import { v4 as generateId } from 'uuid'
 
 const app = express()
@@ -95,6 +94,41 @@ app.post('/users/register', (req: Request, res:Response) => {
     res.status(201).send(`Conta criada com sucesso: ${newUser}`)
       
   } catch (error : any) {
+    res.status(errorCode).send(error.message)
+  }
+})
+
+// Crie um endpoint put que receba um nome, um CPF e um valor. Ele deve adicionar o valor ao 
+// saldo do usuário. O nome e o CPF devem ser iguais ao que estiver salvo no sistema Se algum dos
+// dados for diferente, exiba uma mensagem de erro.
+
+//ALTER USER DATA
+app.put('/users/edit', (req: Request, res:Response) => {
+  let errorCode = 500
+  const name =  req.body.name as string
+  const cpf = req.body.cpf as string
+  const value = Number(req.body.value)
+
+  try {
+
+    if (!name || !cpf || !value) {
+      errorCode = 403
+      throw new Error ("Algum parâmetro não foi passado.")
+    }
+
+
+    const alteredBalanceOfUser =  users.forEach((u) =>   {
+      if (u.cpf === cpf && u.name === name) {
+        u.balance + value
+      } else {
+        errorCode = 405
+        throw new Error ("O nome ou cpf informados são inválidos.")
+      }
+    })
+    const newBalance = Number(alteredBalanceOfUser)
+    res.status(201).send(newBalance)
+
+  } catch (error:any) {
     res.status(errorCode).send(error.message)
   }
 })
