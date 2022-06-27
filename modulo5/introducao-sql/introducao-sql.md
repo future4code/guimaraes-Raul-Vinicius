@@ -70,4 +70,102 @@ SELECT id, name, salary FROM Actor WHERE salary < 500001;
 
 #e) coluna desconhecida 'nenhum' na lista de campos
 # a coluna 'name' estava escrito 'nome'
-SELECT id, name from Actor WHERE id = "002"; -->
+SELECT id, name from Actor WHERE id = "002";
+#----------------------------------------------------------
+
+#EXERCICIO 5 
+SELECT * FROM Actor
+WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000;
+
+#a) A query ta selecionando todas as colunas da tabela 'Actor' e nos mostrando os dados em que o 'name' 
+# começa com 'A' ou 'J' e que tenham um salário superior a 300.000 
+
+#b)  Escreva uma query com os atores que não comecem com a letra "A" e tenham o salário maior do que R$350 mil
+SELECT * FROM Actor
+WHERE (name NOT LIKE "A%") AND salary > 350000;
+
+#c) Escreva uma query com os atores que possuam "G" ou "g" em qualquer parte do nome. 
+SELECT * FROM Actor
+WHERE (name LIKE "%G%" OR name LIKE "%g%");
+
+#d) Escreva uma query com os atores que tenham a letra "a" ou "A" ou "g" ou "G" no nome 
+# e o salário entre R$350.000,00 e R$900.000,00
+SELECT * FROM Actor
+WHERE (name LIKE "%A%" OR name LIKE "%a%" OR name LIKE "%G%" OR name LIKE "%g%") 
+AND salary BETWEEN 350000 AND 900000;
+#----------------------------------------------------------------------------------
+
+# EXERCICIO 6 
+
+#a) Criar a tabela id, nome, sinopse, data de lançamento e avaliação 
+CREATE TABLE Movies (
+    id VARCHAR(255) PRIMARY KEY,
+    title VARCHAR (255) NOT NULL UNIQUE,
+    synopsis TEXT NOT NULL,
+    posting_date DATE NOT NULL,
+    evaluation INT NOT NULL
+);
+
+#B) 
+INSERT INTO Movies (id, title, synopsis, posting_date, evaluation) 
+VALUES(
+	"001",
+    "Se eu fosse você",
+    "Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+    "2006-01-06",
+    7
+);
+
+#c) 
+INSERT INTO Movies (id, title, synopsis, posting_date, evaluation) 
+VALUES(
+	"002",
+    "Doce de mãe",
+    "Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+    "2012-12-27",
+    10
+);
+
+#d)
+INSERT INTO Movies (id, title, synopsis, posting_date, evaluation) 
+VALUES(
+	"003",
+    "Dona Flor e seus dois maridos",
+    "Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.",
+    "2017-11-02",
+    8
+);
+
+#e)
+INSERT INTO Movies (id, title, synopsis, posting_date, evaluation) 
+VALUES(
+	"004",
+    "Deus é Brasileiro",
+    "Cansado da humanidade, Deus resolve tirar férias para descansar e procura alguém no Brasil capaz de substituí-lo. O borracheiro e pescador Taoca e a solitária Madá deverão guiá-lo até Quincas das Mulas, candidato de Deus a santo.",
+    "2003-01-31",
+    9
+);
+#--------------------------------------------------------------------
+
+# EXERCICIO 7
+
+# A) Retorne o id, título e avaliação a partir de um id específico;
+SELECT id, title, evaluation FROM Movies WHERE id = "001";
+
+# B) Retorne um filme a partir de um nome específico;
+SELECT title FROM Movies WHERE title = "Deus é brasileiro";
+
+# C) Retorne o id, título e sinopse dos filmes com avaliação mínima de 7
+SELECT id, title, synopsis FROM Movies WHERE evaluation >= 7;
+#-----------------------------------------------------------------------------
+
+# EXERCICIO 8 
+
+# A) Retorna um filme cujo título contenha a palavra vida.
+SELECT * FROM Movies 
+WHERE (title LIKE "%vida%");
+
+
+
+SELECT * FROM Movies;
+ -->
