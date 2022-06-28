@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { PageContainer,BoxTitle, BoxButton } from "./style";
-import { goToLoginPage, goToTripsListPage } from "../../Routes/coordinator";
+import { goToLoginPage, goToApplicationPage } from "../../Routes/coordinator";
 
 const HomePage = () => {
 
@@ -19,7 +19,7 @@ const HomePage = () => {
                 <Button onClick={() => goToLoginPage(navigate)} 
                 variant={'contained'} color={'primary'}>Área de Login</Button>
 
-                <Button onClick={() => goToTripsListPage(navigate)}  
+                <Button onClick={() => goToApplicationPage(navigate)}  
                 variant={'contained'} color={'primary'}>Candidate-se a viagens</Button>
             </BoxButton>
         </PageContainer>
