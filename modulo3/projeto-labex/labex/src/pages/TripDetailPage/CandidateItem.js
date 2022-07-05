@@ -1,5 +1,5 @@
 import React from "react"
-import { List, ListItem, ListItemText, ListItemSecondaryAction, IconButton } from "@mui/material"
+import { ListItem, ListItemText, IconButton } from "@mui/material"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
