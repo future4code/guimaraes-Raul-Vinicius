@@ -4,12 +4,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useTripsList } from "../../hooks/useTripsList";
 import { goToTripDetailPage, goToHomePage, goToCreateTripPage } from "../../Routes/coordinator";
 
 
 const TripsListPage = () => {
 
     const navigate = useNavigate()
+    const trips = useTripsList()
 
     return (
         <div>
@@ -20,13 +22,14 @@ const TripsListPage = () => {
                 variant={'contained'} color={'primary'}>Criar viagem</Button>
             </div>
 
-            <List component="nav" aria-label="secondary mailbox folders">
-                <ListItem onClick={() => goToTripDetailPage(navigate)} button>
-                    <ListItemText primary="Viagem para Marte"/>
-                </ListItem>
-                <ListItem onClick={() => goToTripDetailPage(navigate)} button>
-                    <ListItemText primary="Viagem para Lua"/>
-                </ListItem>
+            <List component="nav">
+                {trips.map((trip) => {
+                    return (
+                        <ListItem onClick={() => goToTripDetailPage(navigate)} button>
+                            <ListItemText primary={trip.name} />
+                        </ListItem>
+                    )
+                })}
             </List>
         </div>
     )

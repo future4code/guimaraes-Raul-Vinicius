@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import { BoxForm, PageContainer } from "./style";
 import {TextField, Typography, Button, InputLabel, Select, MenuItem, FormControl} from "@mui/material"
 import { useForm } from "../../hooks/useForm";
+import { useTripsList } from "../../hooks/useTripsList";
 
 const ApplicationPage = () => {
 
-    const [trips, setTrips] = useState([])
+    const trips = useTripsList()
     const [form, onChangeInput] = useForm({
         name: '',
         age: 0,
@@ -15,13 +16,6 @@ const ApplicationPage = () => {
         country: '',
         trip: null
     })
-
-    useEffect(() => {
-        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/raul/trips')
-        .then((res) => {
-            setTrips(res.data.trips)
-        })
-    }, [])
 
     const onSubmitApplication = (event) => {
         event.preventDefault()
@@ -33,7 +27,7 @@ const ApplicationPage = () => {
             profession: form.profession,
             country: form.country
         }
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/raul/trips/${form.trip.id}/apply`, body)
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/raul-vinicius-guimaraes/trips/${form.trip.id}/apply`, body)
     }
 
     return (
