@@ -18,7 +18,7 @@ app.post('/user', async(req:Request, res:Response) => {
         const {name, nickname, email} = req.body 
 
         if(!name || !nickname || !email) {
-            errorCode = 401
+            errorCode = 400
             throw new Error("Todos os campos são obrigatórios.")
         }
 
@@ -31,7 +31,31 @@ app.post('/user', async(req:Request, res:Response) => {
                 "${email}"
             )
         `)
-        res.status(200).send(`Usuário criado com sucesso!`);
+        res.status(201).send(`Usuário criado com sucesso!`);
+
+    } catch (error:any) {
+        console.log(error)
+        res.status(errorCode).send(error.message || error.sqlMessage);
+    }
+})
+
+//2. Pegar Usuário pelo Id
+
+app.get('/user/:id', async(req:Request, res:Response) => {
+    let errorCode = 400
+    try {
+        const id = req.params.id
+
+        const userSelect = await connection.raw(`
+            SELECT name, nickname FROM TodoListUser WHERE id = '${id}'
+        `)
+
+        if (userSelect[0].length === 0){
+            errorCode = 404
+            throw new Error("Usuário não encontrado.")
+        }
+
+        res.status(200).send(userSelect[0])
 
     } catch (error:any) {
         console.log(error)
@@ -39,19 +63,31 @@ app.post('/user', async(req:Request, res:Response) => {
     }
 })
 
-//2. Pegar Usuário pelo Id
-
-app.get('user/:id', async(req:Request, res:Response) => {
+app.put('/user/edit/:id', async(req: Request, res: Response) => {
+    let errorCode = 400
     try {
-        const id = req.params.id 
+        const id = req.params.id
+        const {name, nickname, email} = req.body
 
-        const userSelect = await connection.raw(`
-            SELECT * FROM TodoListUser WHERE id = "${id}"
-        `)
-        res.status(201).send(userSelect[0])
+        if (!name || !nickname || !email) {
+            errorCode = 400
+            throw new Error("É necessário preencher todos os campos.")
+        }
+        
+        await connection("TodoListUser")
+        .update({
+            name,
+            nickname,
+            email
+        })
+        .where({
+            id
+        })
+
+        res.status(200).send("Usuário atualizado com sucesso.")
 
     } catch (error:any) {
         console.log(error)
-        res.status(400).send(error.message);
+        res.status(errorCode).send(error.message);
     }
 })

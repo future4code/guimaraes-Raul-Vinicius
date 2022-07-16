@@ -1,0 +1,12 @@
+# Criar usuário
+POST http://localhost:3003/user
+
+{
+    "name": "Tales",
+    "nickname" : "Talin",
+    "email" : "tales@email.com"
+}
+
+# Pegar usuários por id
+
+GET http://localhost:3003/user/c6e4d5f4-1d31-4723-b325-4509767d4270
