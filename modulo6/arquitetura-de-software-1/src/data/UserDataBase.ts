@@ -40,4 +40,15 @@ export class UserDataBase extends BaseDataBase {
         }
         
     }
+
+    deleteUser = async(id:string) :Promise<void> => {
+        try {
+            await UserDataBase.connection("Arq_User")
+            .where(id)
+			.delete()
+            
+        } catch (error:any) {
+            throw new Error(error.message || error.sqlMessage)
+        }
+    }
 }
