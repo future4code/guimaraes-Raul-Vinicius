@@ -1,0 +1,27 @@
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "Raul",
+    "email": "raul@email.com",
+    "password": "123456"
+}
+
+###
+
+GET http://localhost:3003/user/getall
+
+###
+
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "Harry Potter",
+    "description": "E a Camara Secreta",
+    "duration_in_minutes": "120",
+    "year_of_release": "2008"
+}
+
+
+
