@@ -1,52 +1,15 @@
 import app from "./app"
+import { postRouter } from "./routes/postRouter"
 import { userRouter } from "./routes/userRouter"
 
 app.use("/user", userRouter)
+
+app.use("/post", postRouter)
 
 
 
 /**************************** ENDPOINTS ******************************/
 
-// app.post('/users', async (req: Request, res: Response) => {
-//    try {
-      
-
-      
-
-//       res.status(201).send({ message })
-
-//    } catch (error:any) {
-//       res.statusCode = 400
-//       let message = error.sqlMessage || error.message
-//       res.send({ message })
-//    }
-// })
-
-// app.post('/post', async (req: Request, res: Response) => {
-//    try {
-//       let message = "Success!"
-
-//       const { photo, description, type, authorId } = req.body
-
-//       const postId: string = generateId()
-
-//       await connection("labook_posts")
-//          .insert({
-//             id:postId,
-//             photo,
-//             description,
-//             type,
-//             author_id: authorId
-//          })
-
-//       res.status(201).send({ message })
-
-//    } catch (error:any) {
-//       let message = error.sqlMessage || error.message
-//       res.statusCode = 400
-//       res.send({ message })
-//    }
-// })
 
 // app.get('/posts/:id', async (req: Request, res: Response) => {
 //    try {
