@@ -17,3 +17,7 @@ Content-Type: application/json
     "type" : "normal", 
     "authorId" : "94feb19a-f1dd-4531-b4b9-06694627a933"
 }
+
+###
+
+GET  http://localhost:3003/post/94feb19a-f1dd-4531-b4b9-06694627a937

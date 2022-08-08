@@ -22,4 +22,19 @@ export class PostController {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
+
+    getPost = async(req:Request, res: Response) => {
+        try {
+
+            const id = req.params.id 
+
+            const postBusiness = new PostBusiness
+            const result = await postBusiness.getPost(id)
+
+            res.status(200).send(result)
+            
+        } catch (error:any) {
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+        }
+    }
 }
