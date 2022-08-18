@@ -12,7 +12,7 @@ export class UserController {
             name,
             nickname,
             email,
-            password,
+            password
           };
           const userBusiness = new UserBusiness()
           const token = await userBusiness.signup(input);
@@ -55,6 +55,7 @@ export class UserController {
     
           res.status(201).send({ message: "Usuário alterado!" });
         } catch (error: any) {
+          console.error(error)
           res.status(400).send(error.message);
         }
       }; 

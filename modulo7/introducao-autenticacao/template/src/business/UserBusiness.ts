@@ -52,6 +52,7 @@ export class UserBusiness {
 
       const token = authenticator.generateToken({ id });
       return token;
+      
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

@@ -1,3 +1,4 @@
+-- Active: 1660770465650@@35.226.146.116@3306@guimaraes-4211089-raul-rita2
 
 CREATE TABLE IF NOT EXISTS Auth_users (
     id VARCHAR(64) PRIMARY KEY,

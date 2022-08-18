@@ -3,18 +3,21 @@ import { EditUserInput, user } from "../model/user";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
+  private Table_name = "Auth_users"
+
   public insertUser = async (user: user) => {
     try {
-      await UserDatabase.connection
+      await BaseDatabase.connection(this.Table_name)
         .insert({
           id: user.id,
           name: user.name,
           nickname: user.nickname,
           email: user.email,
-          password: user.password,
+          password: user.password
         })
-        .into("Auth_users");
+        
     } catch (error: any) {
+      console.error(error)
       throw new CustomError(400, error.message);
     }
   };
