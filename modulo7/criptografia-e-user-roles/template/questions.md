@@ -13,4 +13,4 @@ b) *Faça a alteração do primeiro endpoint*
 
 c) *Faça a alteração do segundo endpoint*
 
-d) *No exercício da aula anterior, nós criamos o endpoint `user/profile`. Também temos que modificar esse endpoint devido à adição da criptografia? Justifique.*
+d) *No exercício da aula anterior, nós criamos o endpoint `user/profile`. Também temos que modificar esse endpoint devido à adição da criptografia? Justifique*
