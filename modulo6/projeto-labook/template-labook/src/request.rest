@@ -1,0 +1,23 @@
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "tesewete",
+    "email": "emailqeqw1@email.com"
+}
+
+###
+
+POST http://localhost:3003/post/create
+Content-Type: application/json
+
+{
+    "photo" : "urlDaFoto", 
+    "description" : "post de teste", 
+    "type" : "normal", 
+    "authorId" : "94feb19a-f1dd-4531-b4b9-06694627a933"
+}
+
+###
+
+GET  http://localhost:3003/post/94feb19a-f1dd-4531-b4b9-06694627a933
