@@ -14,19 +14,13 @@ export interface UserInputDTO {
    role: string
 }
 
-export interface LoginUserInputDTO {
+export interface LoginInputDTO {
    email: string,
    password: string
 }
 
-export interface EditUserInputDTO {
+export interface UserOutput {
+   id: string,
    name: string,
-   nickname: string,
-   id: string
-}
-
-export interface EditUserInput {
-   name: string,
-   nickname: string,
-   id: string
+   email: string
 }

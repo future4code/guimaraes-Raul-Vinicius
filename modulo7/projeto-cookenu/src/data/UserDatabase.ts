@@ -1,5 +1,5 @@
 import { CustomError } from "../error/customError";
-import { EditUserInput, user } from "../model/user";
+import { user, UserOutput } from "../model/user";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
@@ -20,40 +20,31 @@ export class UserDatabase extends BaseDatabase {
     } catch (error: any) {
       throw new CustomError(400, error.sqlMessage);
     }
-  };
-
-  public editUser = async (user: EditUserInput) => {
-    try {
-      await UserDatabase.connection
-        .update({ name: user.name, nickname: user.nickname })
-        .where({ id: user.id })
-        .into("Auth_users");
-    } catch (error: any) {
-      throw new CustomError(400, error.sqlMessage);
-    }
-  };
-
-  public findUserByEmail = async (email: string) => {
-    try {
-      const result = await UserDatabase.connection("Auth_users")
-        .select()
-        .where({email});
-      return result[0];
-    } catch (error: any) {
-      throw new CustomError(400, error.sqlMessage);
-    }
-  };
+  }
   
-  public getUserById = async (id: string) => {
+  public findUserByEmail = async (email: string) :Promise<user> => {
     try {
-      const result = await UserDatabase.connection("Auth_users")
-        .select()
-        .where({id});
+      const result = await UserDatabase.connection(this.TABLE_NAME)
+      .select()
+      .where({email});
       return result[0];
     } catch (error: any) {
       throw new CustomError(400, error.sqlMessage);
     }
-  };
+  }
 
+  public getProfile = async (id: string) :Promise<UserOutput> => {
 
+		try {
+
+			const result = await UserDatabase.connection(this.TABLE_NAME)
+				.select("id", "name", "email")
+				.where("id", "like", id)
+
+			return result[0]
+
+		} catch (error: any) {
+			throw new CustomError(400, error.message)
+		}
+	}
 }
