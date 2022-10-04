@@ -30,5 +30,11 @@ export const FirstContainer = styled.div `
 `
 
 export const SecondContainer = styled.div `
-    background-color: red;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+
 `
