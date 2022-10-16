@@ -1,0 +1,24 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Naruto Uzumaki", 
+   "email": "naruto@email.com" ,
+   "password": "souohokage",
+   "role": "NORMAL"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "naruto@email.com", 
+   "password": "souohokage"
+}
+
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzNTQ4ZTk0LTNmNDUtNGMyZC05ZWEzLTA4NjBiMjliY2Y2MSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjE3MjQzNTgsImV4cCI6MTY2MTgxMDc1OH0.L_DHB5IVfRxvuyXv-PxP6L6VHWym-CDT7jrBciKDXqU
