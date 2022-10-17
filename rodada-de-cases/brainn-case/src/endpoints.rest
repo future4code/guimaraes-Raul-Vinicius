@@ -4,5 +4,6 @@ GET https://brainn-api-loterias.herokuapp.com/api/v1/loterias
 GET https://brainn-api-loterias.herokuapp.com/api/v1/loterias-concursos
 
 ###
-GET https://brainn-api-loterias.herokuapp.com/api/v1/concursos/2359
+GET https://brainn-api-loterias.herokuapp.com/api/v1/concursos/5534
+
 

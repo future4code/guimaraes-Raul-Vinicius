@@ -7,17 +7,12 @@ export const GlobalState = (props) => {
     
     const [games, setGames] = useState([])
     const [allCompetitions, setAllCompetitions] = useState([])
-    const [competition, setCompetition] = useState([])
-    const [luck, setLuck] = useState({ loteriaId: 0, concursoId: "2359" });
+    
 
     useEffect(() => {
         getAllGames()
         getAllCompetitions()
     }, [])
-
-    useEffect(() => {
-        getCompetitionById()
-    }, []);
 
     const getAllGames = async () => {
         await axios.get(`${BASE_URL}/loterias`)
@@ -39,17 +34,9 @@ export const GlobalState = (props) => {
         })
     }
 
-    const getCompetitionById = async() => {
-        await axios.get(`${BASE_URL}/concursos/${luck.concursoId}`)
-        .then((res) => {
-            setCompetition(res.data)
-        })
-        .catch((err) => {
-            alert(err)
-        })
-    }
+    
 
-    const data = {games, setGames, allCompetitions, setAllCompetitions, competition, setCompetition}
+    const data = {games, setGames, allCompetitions, setAllCompetitions}
 
     return(
         <GlobalStateContext.Provider value={data}>
