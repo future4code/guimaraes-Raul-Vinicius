@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import {quinaColor} from "../../constants/colors"
+import {lotoFacilColor} from "../../constants/colors"
 
 export const MainContainer = styled.div `
     display: flex;
     background-color: #efefef;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     
     @media screen and (max-width: 900px) {
         display: flex;
@@ -23,7 +23,7 @@ export const FirstContainer = styled.div `
   align-items: flex-start;
   padding-left: 70px;
   color: #fff;
-  background: ${quinaColor};
+  background: ${lotoFacilColor};
 
   @media screen and (max-width: 900px) {
     width: 100%;

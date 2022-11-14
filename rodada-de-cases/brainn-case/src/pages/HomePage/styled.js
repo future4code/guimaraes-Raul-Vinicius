@@ -5,6 +5,7 @@ export const MainContainer = styled.div `
     display: flex;
     background-color: #efefef;
     width: 100%;
+    min-height: 100vh;
     
     @media screen and (max-width: 900px) {
         display: flex;
@@ -26,6 +27,9 @@ export const FirstContainer = styled.div `
 
   @media screen and (max-width: 900px) {
     width: 100%;
+    height: 50%;
+    padding-left: 0;
+    align-items: center;
   }
 `
 
@@ -37,6 +41,18 @@ export const LogoBox =  styled.div `
     font-size: 30px;
     font-weight: 700;
     line-height: 37px;
+  }
+
+  img {
+      width: 64px;
+    }
+
+  @media screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
   }
 `
 export const CompetitionBox =  styled.div `
@@ -58,6 +74,10 @@ export const CompetitionBox =  styled.div `
     font-size: 20px;
     font-weight: 700;
   }
+
+  @media screen and (max-width: 900px) {
+    align-items: center;
+  }
 `
 
 export const SecondContainer = styled.div `
@@ -68,6 +88,18 @@ export const SecondContainer = styled.div `
     justify-content: space-between;
     padding: 30px 0;
 
+    @media screen and (max-width: 900px) {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        text-align: center;
+      }
+  }
+
 `
 
 export const NumbersContainer = styled.div `
@@ -75,6 +107,7 @@ export const NumbersContainer = styled.div `
     justify-content: center;
     align-items: center;   
     gap: 30px;
+    flex-wrap: wrap;
 `
 
 export const GameNumbers = styled.h1 `

@@ -1,13 +1,13 @@
+import axios from "axios";
+import moment from "moment";
 import React, { useContext, useEffect, useState } from "react";
-import logo from "../../assets/logo.svg"
-import moment from "moment"
 import SelectLotto from "../../components/SelectLotto/SelectLotto";
+import { BASE_URL } from "../../constants/urls";
+import logo from "../../assets/logo.svg"
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CompetitionBox, FirstContainer, GameNumbers, LogoBox, MainContainer, NumbersContainer, SecondContainer } from "./styled";
-import axios from "axios";
-import { BASE_URL } from "../../constants/urls";
 
-const QuinaPage = () => {
+const TimemaniaPage = () => {
 
     const {allCompetitions, games} = useContext(GlobalStateContext)
 
@@ -21,7 +21,7 @@ const QuinaPage = () => {
     });
 
     const getCompetitionById = async() => {
-        await axios.get(`${BASE_URL}/concursos/5534`)
+        await axios.get(`${BASE_URL}/concursos/1622`)
         .then((res) => {
             setCompetition(res.data)
         })
@@ -40,13 +40,13 @@ const QuinaPage = () => {
                 <SelectLotto />
                 
                 <LogoBox>
-                    <img src={logo} alt={"quina"} />
-                    <p>{games[1] && games[1].nome.toUpperCase()}</p>
+                    <img src={logo} alt={"timemania"} />
+                    <p>{games[4] && games[4].nome.toUpperCase()}</p>
                 </LogoBox>
 
                 <CompetitionBox>
                     <h1>CONCURSO</h1>
-                    <p>{allCompetitions[1] && allCompetitions[1].concursoId} - {data}</p>                    
+                    <p>{allCompetitions[4] && allCompetitions[4].concursoId} - {data}</p>                    
                 </CompetitionBox>
             </FirstContainer>
 
@@ -63,4 +63,4 @@ const QuinaPage = () => {
     )
 }
 
-export default QuinaPage;
+export default TimemaniaPage;
