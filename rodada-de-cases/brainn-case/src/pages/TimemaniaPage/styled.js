@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {quinaColor} from "../../constants/colors"
+import {timeManiaColor } from "../../constants/colors"
 
 export const MainContainer = styled.div `
     display: flex;
@@ -23,7 +23,7 @@ export const FirstContainer = styled.div `
   align-items: flex-start;
   padding-left: 70px;
   color: #fff;
-  background: ${quinaColor};
+  background: ${timeManiaColor};
 
   @media screen and (max-width: 900px) {
     width: 100%;

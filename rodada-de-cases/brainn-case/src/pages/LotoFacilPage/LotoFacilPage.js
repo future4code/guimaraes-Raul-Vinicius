@@ -1,13 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
+import moment from "moment";
+import { useState } from "react";
+import { useContext } from "react";
+import { CompetitionBox, FirstContainer, GameNumbers, LogoBox, MainContainer, NumbersContainer, SecondContainer } from "./styled";
+import axios from "axios";
+import {BASE_URL} from "../../constants/urls"
+import logo from "../../assets/logo.svg"
+import { useEffect } from "react";
 import SelectLotto from "../../components/SelectLotto/SelectLotto";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { CompetitionBox, FirstContainer, GameNumbers, LogoBox, MainContainer, NumbersContainer, SecondContainer } from "./styled";
-import logo from "../../assets/logo.svg"
-import moment from "moment"
-import axios from "axios";
-import { BASE_URL } from "../../constants/urls";
 
-const HomePage = () => {
+const LotoFacilPage = () => {
 
     const {allCompetitions, games} = useContext(GlobalStateContext)
 
@@ -21,7 +24,7 @@ const HomePage = () => {
     });
 
     const getCompetitionById = async() => {
-        await axios.get(`${BASE_URL}/concursos/2359`)
+        await axios.get(`${BASE_URL}/concursos/2200`)
         .then((res) => {
             setCompetition(res.data)
         })
@@ -40,19 +43,19 @@ const HomePage = () => {
                 <SelectLotto />
                 
                 <LogoBox>
-                    <img src={logo} alt={"mega sena"} />
-                    <p>{games[0] && games[0].nome.toUpperCase()}</p>
+                    <img src={logo} alt={"lotofacil"} />
+                    <p>{games[2] && games[2].nome.toUpperCase()}</p>
                 </LogoBox>
 
                 <CompetitionBox>
                     <h1>CONCURSO</h1>
-                    <p>{allCompetitions[0] && allCompetitions[0].concursoId} - {data}</p>                    
+                    <p>{allCompetitions[2] && allCompetitions[2].concursoId} - {data}</p>                    
                 </CompetitionBox>
             </FirstContainer>
 
             <SecondContainer>
                 <div></div>
-
+                
                 <NumbersContainer>
                     {numbers}
                 </NumbersContainer>
@@ -63,4 +66,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default LotoFacilPage;

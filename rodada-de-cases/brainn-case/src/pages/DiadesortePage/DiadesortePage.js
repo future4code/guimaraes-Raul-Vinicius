@@ -1,13 +1,13 @@
+import axios from "axios";
+import moment from "moment";
 import React, { useContext, useEffect, useState } from "react";
 import SelectLotto from "../../components/SelectLotto/SelectLotto";
+import { BASE_URL } from "../../constants/urls";
+import logo from "../../assets/logo.svg"
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CompetitionBox, FirstContainer, GameNumbers, LogoBox, MainContainer, NumbersContainer, SecondContainer } from "./styled";
-import logo from "../../assets/logo.svg"
-import moment from "moment"
-import axios from "axios";
-import { BASE_URL } from "../../constants/urls";
 
-const HomePage = () => {
+const DiadesortePage = () => {
 
     const {allCompetitions, games} = useContext(GlobalStateContext)
 
@@ -21,7 +21,7 @@ const HomePage = () => {
     });
 
     const getCompetitionById = async() => {
-        await axios.get(`${BASE_URL}/concursos/2359`)
+        await axios.get(`${BASE_URL}/concursos/440`)
         .then((res) => {
             setCompetition(res.data)
         })
@@ -40,19 +40,19 @@ const HomePage = () => {
                 <SelectLotto />
                 
                 <LogoBox>
-                    <img src={logo} alt={"mega sena"} />
-                    <p>{games[0] && games[0].nome.toUpperCase()}</p>
+                    <img src={logo} alt={"diadesorte"} />
+                    <p>{games[5] && games[5].nome.toUpperCase()}</p>
                 </LogoBox>
 
                 <CompetitionBox>
                     <h1>CONCURSO</h1>
-                    <p>{allCompetitions[0] && allCompetitions[0].concursoId} - {data}</p>                    
+                    <p>{allCompetitions[5] && allCompetitions[5].concursoId} - {data}</p>                    
                 </CompetitionBox>
             </FirstContainer>
 
             <SecondContainer>
                 <div></div>
-
+                
                 <NumbersContainer>
                     {numbers}
                 </NumbersContainer>
@@ -63,4 +63,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default DiadesortePage;
